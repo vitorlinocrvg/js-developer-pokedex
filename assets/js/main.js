@@ -2,7 +2,7 @@ const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 
 const maxRecords = 151
-const limit = 10
+const limit = 12;
 let offset = 0;
 
 function convertPokemonToLi(pokemon) {
@@ -23,11 +23,32 @@ function convertPokemonToLi(pokemon) {
     `
 }
 
+// Função separada de navegação
+function goToPokemonDetails(id) {
+    window.location.href = `details.html?id=${id}`;
+}
+
+// Função separada para vincular o clique a cada Pokémon da lista
+function addPokemonClickEvents() {
+    const pokemonElements = document.querySelectorAll('.pokemon');
+    pokemonElements.forEach((element) => {
+        element.style.cursor = 'pointer';
+        // Remove ouvintes duplicados caso recarregue e adiciona o novo
+        element.onclick = () => {
+            const id = element.querySelector('.number').innerText.replace('#', '');
+            goToPokemonDetails(parseInt(id, 10));
+        };
+    });
+}
+
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-        const newHtml = pokemons.map(convertPokemonToLi).join('')
-        pokemonList.innerHTML += newHtml
-    })
+        const newHtml = pokemons.map(convertPokemonToLi).join('');
+        pokemonList.innerHTML += newHtml;
+        
+        // Chama a função separada logo após o HTML na página
+        addPokemonClickEvents();
+    });
 }
 
 loadPokemonItens(offset, limit)

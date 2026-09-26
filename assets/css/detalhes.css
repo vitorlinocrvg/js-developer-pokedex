@@ -1,0 +1,60 @@
+#pokemon-detail{
+    text-transform: capitalize;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+}
+.stats {
+    padding: 20px;
+    gap: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.types {
+    font-weight: bolder;
+    list-style: none;
+    font-size: 30px;
+    padding: 30px;
+    line-height: 50px;
+    border-radius: 10px;
+}
+.img-pokemon {
+    padding-left:15rem;
+}
+#pokemon-style{
+    align-content: center;
+    width: 100vw;
+    border-radius: 20px;
+    height: 50vh;
+    font-size: 30px;
+}
+.botao-voltar {
+    font-weight: bolder;
+    color: black;
+    font-size: 40px;
+    text-decoration: none;
+}
+.details-space{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+.details-space h1 {
+    font-size: 80px;
+}
+
+.pokemon-type-stats{
+    background-color: #f3eded;
+    border-radius: 50px 50px 40px 40px;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    gap: 20rem;
+}
